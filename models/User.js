@@ -48,7 +48,7 @@ User.init(
             },
 
             async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData, 10);
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
                 return updatedUserData;
             }
         },
@@ -59,5 +59,6 @@ User.init(
         modelName: 'user'
     }
 );
+
 
 module.exports = User;
